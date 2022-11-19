@@ -10,7 +10,6 @@
 		622A6F4729291FF100783DDC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 622A6F4629291FF100783DDC /* AppDelegate.swift */; };
 		622A6F4929291FF100783DDC /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 622A6F4829291FF100783DDC /* SceneDelegate.swift */; };
 		622A6F4B29291FF100783DDC /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 622A6F4A29291FF100783DDC /* ViewController.swift */; };
-		622A6F4E29291FF100783DDC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 622A6F4C29291FF100783DDC /* Main.storyboard */; };
 		622A6F5129291FF100783DDC /* Sfera_iOS_Test.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 622A6F4F29291FF100783DDC /* Sfera_iOS_Test.xcdatamodeld */; };
 		622A6F5329291FF300783DDC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 622A6F5229291FF300783DDC /* Assets.xcassets */; };
 		622A6F5629291FF300783DDC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 622A6F5429291FF300783DDC /* LaunchScreen.storyboard */; };
@@ -21,7 +20,6 @@
 		622A6F4629291FF100783DDC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		622A6F4829291FF100783DDC /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		622A6F4A29291FF100783DDC /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		622A6F4D29291FF100783DDC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		622A6F5029291FF100783DDC /* Sfera_iOS_Test.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Sfera_iOS_Test.xcdatamodel; sourceTree = "<group>"; };
 		622A6F5229291FF300783DDC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		622A6F5529291FF300783DDC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -61,7 +59,6 @@
 				622A6F4629291FF100783DDC /* AppDelegate.swift */,
 				622A6F4829291FF100783DDC /* SceneDelegate.swift */,
 				622A6F4A29291FF100783DDC /* ViewController.swift */,
-				622A6F4C29291FF100783DDC /* Main.storyboard */,
 				622A6F5229291FF300783DDC /* Assets.xcassets */,
 				622A6F5429291FF300783DDC /* LaunchScreen.storyboard */,
 				622A6F5729291FF300783DDC /* Info.plist */,
@@ -130,7 +127,6 @@
 			files = (
 				622A6F5629291FF300783DDC /* LaunchScreen.storyboard in Resources */,
 				622A6F5329291FF300783DDC /* Assets.xcassets in Resources */,
-				622A6F4E29291FF100783DDC /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -151,14 +147,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		622A6F4C29291FF100783DDC /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				622A6F4D29291FF100783DDC /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		622A6F5429291FF300783DDC /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -296,7 +284,6 @@
 				INFOPLIST_FILE = Sfera_iOS_Test/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -324,7 +311,6 @@
 				INFOPLIST_FILE = Sfera_iOS_Test/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
