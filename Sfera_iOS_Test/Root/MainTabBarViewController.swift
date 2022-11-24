@@ -14,9 +14,6 @@ class MainTabBarViewController: UITabBarController {
         super.viewDidLoad()
         tabBar.backgroundColor = UIColor.systemGray5
         
-        
-        
-        
         viewControllers = [
             generatedNavControl(rootViewController: PhotoViewController(), title: "Photo", image: UIImage(systemName: "photo.circle")!, selectedImage: UIImage(systemName: "photo.circle.fill")!),
             generatedNavControl(rootViewController: FavoriteViewController(), title: "Favorite", image: UIImage(systemName: "heart.circle")!, selectedImage: UIImage(systemName: "heart.circle.fill")!)

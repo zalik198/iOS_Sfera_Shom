@@ -19,8 +19,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         self.window?.rootViewController = MainTabBarViewController()
         self.window?.makeKeyAndVisible()
         self.window?.overrideUserInterfaceStyle = .light
-
-        
        
         return true
     }

@@ -17,6 +17,8 @@ class DetailViewController: UIViewController {
     var textLikes = Int()
     
     
+    
+    
     lazy var imageView: UIImageView = {
         let imageView = UIImageView()
         imageView.clipsToBounds = true
@@ -61,16 +63,14 @@ class DetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        view.addSubview(imageView)
-        view.addSubview(labelLocation)
-        view.addSubview(labelAuthor)
-        view.addSubview(labelLikes)
         self.view.backgroundColor = .white
+        view.addSubviews(imageView, labelLocation, labelAuthor, labelLikes)
+        
         initialLayout()
-    
+        imageView.isHidden = true
         if let load = selectedImage {
             let images = load
-            configureImage(with: images)
+            configureImage(with: images, imageView: imageView)
         }
     }
     
@@ -79,29 +79,37 @@ class DetailViewController: UIViewController {
         self.tabBarController?.tabBar.isHidden = true
     }
     
-    
-    func initialLayout() {
+    override func viewDidAppear(_ animated: Bool) {
+         super.viewDidAppear(animated)
+        imageView.isHidden = false
+
+        self.imageView.transform = CGAffineTransform(scaleX: 0, y: 0)
+                 UIView.animate(withDuration: 2, delay: 1, usingSpringWithDamping: 1, initialSpringVelocity: 0, options: .curveEaseOut, animations: {
+                     self.imageView.transform = .identity
+                 }, completion: nil)
         
+   
+     }
+    
+    //MARK: - Initial constraints Detail ViewController
+    func initialLayout() {
         labelLocation.snp.makeConstraints { make in
             make.top.equalTo(self.view.safeAreaLayoutGuide).offset(25)
             make.height.equalTo(50)
             make.leading.equalToSuperview().offset(16)
             make.trailing.equalToSuperview().offset(-16)
         }
-        
         imageView.snp.makeConstraints { make in
             make.top.equalTo(labelLocation.snp.bottom).offset(25)
             make.height.width.equalTo(250)
             make.leading.equalToSuperview().offset(16)
             make.trailing.equalToSuperview().offset(-16)
         }
-        
         labelAuthor.snp.makeConstraints { make in
             make.top.equalTo(imageView.snp.bottom).offset(16)
             make.leading.equalToSuperview().offset(16)
             make.height.equalTo(25)
         }
-        
         labelLikes.snp.makeConstraints { make in
             make.top.equalTo(imageView.snp.bottom).offset(16)
             make.trailing.equalToSuperview().offset(-16)
@@ -109,21 +117,5 @@ class DetailViewController: UIViewController {
         }
     }
     
-    func configureImage(with urlString: String) {
-        guard let url = URL(string: urlString) else {
-            return
-        }
-        let task = URLSession.shared.dataTask(with: url) { data, _, error in
-            guard let data = data, error == nil else { return }
-            DispatchQueue.main.async {
-                let image = UIImage(data: data)
-                self.imageView.image = image
-            }
-        }
-        task.resume()
-    }
-    
-    
-    
-    
 }
+

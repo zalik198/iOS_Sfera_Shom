@@ -20,6 +20,11 @@
 		622A6F702929756C00783DDC /* ModelPhotos.swift in Sources */ = {isa = PBXBuildFile; fileRef = 622A6F6F2929756C00783DDC /* ModelPhotos.swift */; };
 		622A6F72292975A400783DDC /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 622A6F71292975A400783DDC /* NetworkManager.swift */; };
 		622A6F7429297C9000783DDC /* PhotosCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 622A6F7329297C9000783DDC /* PhotosCollectionViewCell.swift */; };
+		62C407FA292FBE8200CD1413 /* DetailPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62C407F9292FBE8200CD1413 /* DetailPresenter.swift */; };
+		62C407FC292FBE9600CD1413 /* DetailInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62C407FB292FBE9600CD1413 /* DetailInteractor.swift */; };
+		62C407FE292FBEB200CD1413 /* DetailConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62C407FD292FBEB200CD1413 /* DetailConfigurator.swift */; };
+		62C40800292FC03000CD1413 /* ConfigureImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62C407FF292FC03000CD1413 /* ConfigureImage.swift */; };
+		62C40802292FC1CA00CD1413 /* Support.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62C40801292FC1CA00CD1413 /* Support.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,6 +42,11 @@
 		622A6F6F2929756C00783DDC /* ModelPhotos.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelPhotos.swift; sourceTree = "<group>"; };
 		622A6F71292975A400783DDC /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		622A6F7329297C9000783DDC /* PhotosCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosCollectionViewCell.swift; sourceTree = "<group>"; };
+		62C407F9292FBE8200CD1413 /* DetailPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailPresenter.swift; sourceTree = "<group>"; };
+		62C407FB292FBE9600CD1413 /* DetailInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailInteractor.swift; sourceTree = "<group>"; };
+		62C407FD292FBEB200CD1413 /* DetailConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailConfigurator.swift; sourceTree = "<group>"; };
+		62C407FF292FC03000CD1413 /* ConfigureImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigureImage.swift; sourceTree = "<group>"; };
+		62C40801292FC1CA00CD1413 /* Support.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Support.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,6 +116,8 @@
 		622A6F682929729D00783DDC /* SupportFiles */ = {
 			isa = PBXGroup;
 			children = (
+				62C407FF292FC03000CD1413 /* ConfigureImage.swift */,
+				62C40801292FC1CA00CD1413 /* Support.swift */,
 			);
 			path = SupportFiles;
 			sourceTree = "<group>";
@@ -121,7 +133,10 @@
 		622A6F6A292972BE00783DDC /* Detail */ = {
 			isa = PBXGroup;
 			children = (
-				622A6F6D2929733600783DDC /* DetailViewController */,
+				622A6F5D2929660B00783DDC /* DetailViewController.swift */,
+				62C407F9292FBE8200CD1413 /* DetailPresenter.swift */,
+				62C407FB292FBE9600CD1413 /* DetailInteractor.swift */,
+				62C407FD292FBEB200CD1413 /* DetailConfigurator.swift */,
 			);
 			path = Detail;
 			sourceTree = "<group>";
@@ -140,14 +155,6 @@
 				622A6F5F2929663300783DDC /* FavoriteViewController.swift */,
 			);
 			path = FavoriteViewController;
-			sourceTree = "<group>";
-		};
-		622A6F6D2929733600783DDC /* DetailViewController */ = {
-			isa = PBXGroup;
-			children = (
-				622A6F5D2929660B00783DDC /* DetailViewController.swift */,
-			);
-			path = DetailViewController;
 			sourceTree = "<group>";
 		};
 		622A6F6E2929735500783DDC /* PhotoViewController */ = {
@@ -235,13 +242,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				62C407FE292FBEB200CD1413 /* DetailConfigurator.swift in Sources */,
 				622A6F72292975A400783DDC /* NetworkManager.swift in Sources */,
 				622A6F7429297C9000783DDC /* PhotosCollectionViewCell.swift in Sources */,
 				622A6F4B29291FF100783DDC /* PhotoViewController.swift in Sources */,
+				62C407FC292FBE9600CD1413 /* DetailInteractor.swift in Sources */,
 				622A6F5129291FF100783DDC /* Sfera_iOS_Test.xcdatamodeld in Sources */,
+				62C407FA292FBE8200CD1413 /* DetailPresenter.swift in Sources */,
 				622A6F702929756C00783DDC /* ModelPhotos.swift in Sources */,
 				622A6F5E2929660B00783DDC /* DetailViewController.swift in Sources */,
 				622A6F62292967FD00783DDC /* MainTabBarViewController.swift in Sources */,
+				62C40800292FC03000CD1413 /* ConfigureImage.swift in Sources */,
+				62C40802292FC1CA00CD1413 /* Support.swift in Sources */,
 				622A6F4729291FF100783DDC /* AppDelegate.swift in Sources */,
 				622A6F602929663400783DDC /* FavoriteViewController.swift in Sources */,
 				622A6F4929291FF100783DDC /* SceneDelegate.swift in Sources */,
