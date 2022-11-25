@@ -9,12 +9,30 @@
 import UIKit
 import SnapKit
 
+protocol DetailViewInputProtocol: AnyObject {
+    func displayLocation(with title: String)
+    func displayAuthor(with title: String)
+    func displayLikes(with title: String)
+    func displayImage(with imageData: Data)
+    
+}
+
+protocol DetailViewOutputProtocol: AnyObject {
+    init(view: DetailViewInputProtocol)
+    func showDetails()
+}
+
 class DetailViewController: UIViewController {
     
-    var selectedImage: String?
-    var textLocation = String()
-    var textAuthor = String()
-    var textLikes = Int()
+   // var selectedImage: String?
+//    var textLocation = String()
+//    var textAuthor = String()
+//    var textLikes = Int()
+    
+    //var detail: Result!
+    var presenter: DetailViewOutputProtocol!
+    //var networkManager: NetworkManager!
+    //private let configurator: DetailConfiguratorInputProtocol = DetailConfigurator()
     
     
     
@@ -23,13 +41,14 @@ class DetailViewController: UIViewController {
         let imageView = UIImageView()
         imageView.clipsToBounds = true
         imageView.contentMode = .scaleAspectFill
+        imageView.isHidden = true
         return imageView
     }()
     
     lazy var labelLocation: UILabel = {
         let labelLocation = UILabel()
         labelLocation.textAlignment = .center
-        labelLocation.text = "Location: \(textLocation)"
+        //labelLocation.text = "Location: \(textLocation)"
         return labelLocation
     }()
     
@@ -38,7 +57,7 @@ class DetailViewController: UIViewController {
         labelAuthor.textAlignment = .left
         labelAuthor.font = labelAuthor.font.withSize(15)
         labelAuthor.textColor = .lightGray
-        labelAuthor.text = "Author: \(textAuthor)"
+        //labelAuthor.text = "Author: \(textAuthor)"
         return labelAuthor
     }()
     
@@ -47,7 +66,7 @@ class DetailViewController: UIViewController {
         labelLikes.textAlignment = .right
         labelLikes.font = labelAuthor.font.withSize(15)
         labelLikes.textColor = .lightGray
-        labelLikes.text = "Likes: \(textLikes)"
+        //labelLikes.text = "Likes: \(textLikes)"
         return labelLikes
     }()
     //    init (imageView: UIImageView) {
@@ -62,16 +81,17 @@ class DetailViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        //configurator.configure(with: self, and: detail)
+        presenter.showDetails()
+       // imageView.isHidden = true
         
+        //configureImage(with: detail.urls.regular, imageView: imageView)
         self.view.backgroundColor = .white
         view.addSubviews(imageView, labelLocation, labelAuthor, labelLikes)
-        
+
         initialLayout()
-        imageView.isHidden = true
-        if let load = selectedImage {
-            let images = load
-            configureImage(with: images, imageView: imageView)
-        }
+        
+    
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -79,16 +99,20 @@ class DetailViewController: UIViewController {
         self.tabBarController?.tabBar.isHidden = true
     }
     
+
     override func viewDidAppear(_ animated: Bool) {
          super.viewDidAppear(animated)
+//        if let load = selectedImage {
+//            let images = load
+//            configureImage(with: images, imageView: imageView)
+//        }
         imageView.isHidden = false
 
         self.imageView.transform = CGAffineTransform(scaleX: 0, y: 0)
-                 UIView.animate(withDuration: 2, delay: 1, usingSpringWithDamping: 1, initialSpringVelocity: 0, options: .curveEaseOut, animations: {
+        UIView.animate(withDuration: 3, delay: 0, usingSpringWithDamping: 0.4, initialSpringVelocity: 0, options: .curveEaseOut, animations: {
                      self.imageView.transform = .identity
                  }, completion: nil)
         
-   
      }
     
     //MARK: - Initial constraints Detail ViewController
@@ -116,6 +140,30 @@ class DetailViewController: UIViewController {
             make.height.equalTo(25)
         }
     }
+    
+}
+
+
+// MARK: - DeailViewInputProtocol
+extension DetailViewController: DetailViewInputProtocol {
+  
+    
+   
+    func displayLocation(with title: String) {
+        labelLocation.text = title
+    }
+    func displayAuthor(with title: String) {
+        labelAuthor.text = title
+    }
+    func displayLikes(with title: String) {
+        labelLikes.text = "\(title)"
+    }
+
+    func displayImage(with imageData: Data) {
+        imageView.image = UIImage(data: imageData)
+    }
+    
+  
     
 }
 

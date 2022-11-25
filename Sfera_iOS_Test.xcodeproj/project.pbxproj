@@ -25,6 +25,8 @@
 		62C407FE292FBEB200CD1413 /* DetailConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62C407FD292FBEB200CD1413 /* DetailConfigurator.swift */; };
 		62C40800292FC03000CD1413 /* ConfigureImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62C407FF292FC03000CD1413 /* ConfigureImage.swift */; };
 		62C40802292FC1CA00CD1413 /* Support.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62C40801292FC1CA00CD1413 /* Support.swift */; };
+		62C408042930C07300CD1413 /* ShowDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62C408032930C07300CD1413 /* ShowDetail.swift */; };
+		62C408062930C44500CD1413 /* ImageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62C408052930C44500CD1413 /* ImageManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -47,6 +49,8 @@
 		62C407FD292FBEB200CD1413 /* DetailConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailConfigurator.swift; sourceTree = "<group>"; };
 		62C407FF292FC03000CD1413 /* ConfigureImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigureImage.swift; sourceTree = "<group>"; };
 		62C40801292FC1CA00CD1413 /* Support.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Support.swift; sourceTree = "<group>"; };
+		62C408032930C07300CD1413 /* ShowDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowDetail.swift; sourceTree = "<group>"; };
+		62C408052930C44500CD1413 /* ImageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,6 +105,7 @@
 			children = (
 				622A6F6F2929756C00783DDC /* ModelPhotos.swift */,
 				622A6F71292975A400783DDC /* NetworkManager.swift */,
+				62C408052930C44500CD1413 /* ImageManager.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -118,6 +123,7 @@
 			children = (
 				62C407FF292FC03000CD1413 /* ConfigureImage.swift */,
 				62C40801292FC1CA00CD1413 /* Support.swift */,
+				62C408032930C07300CD1413 /* ShowDetail.swift */,
 			);
 			path = SupportFiles;
 			sourceTree = "<group>";
@@ -243,6 +249,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				62C407FE292FBEB200CD1413 /* DetailConfigurator.swift in Sources */,
+				62C408062930C44500CD1413 /* ImageManager.swift in Sources */,
 				622A6F72292975A400783DDC /* NetworkManager.swift in Sources */,
 				622A6F7429297C9000783DDC /* PhotosCollectionViewCell.swift in Sources */,
 				622A6F4B29291FF100783DDC /* PhotoViewController.swift in Sources */,
@@ -257,6 +264,7 @@
 				622A6F4729291FF100783DDC /* AppDelegate.swift in Sources */,
 				622A6F602929663400783DDC /* FavoriteViewController.swift in Sources */,
 				622A6F4929291FF100783DDC /* SceneDelegate.swift in Sources */,
+				62C408042930C07300CD1413 /* ShowDetail.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

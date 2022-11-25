@@ -20,3 +20,4 @@ func configureImage(with urlString: String, imageView: UIImageView) {
     }
     task.resume()
 }
+

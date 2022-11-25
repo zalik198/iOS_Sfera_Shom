@@ -8,8 +8,17 @@
 
 
 import UIKit
+//struct Detail: Decodable {
+//    let name: String
+//    let imageUrl: URL
+//    let author: String
+//    let likes: Int
+//}
 
 class NetworkManager {
+    
+    static let shared = NetworkManager()
+
 
     public var results: [Result] = []
     
