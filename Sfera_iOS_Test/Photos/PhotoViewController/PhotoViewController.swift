@@ -53,7 +53,7 @@ class PhotoViewController: UIViewController {
 
         networkManager.fetchPhotos()
         view.addSubviews(collectionView)
-        collectionView.register(PhotosCollectionViewCell.self, forCellWithReuseIdentifier: PhotosCollectionViewCell.id)
+        collectionView.register(PhotoCollectionViewCell.self, forCellWithReuseIdentifier: PhotoCollectionViewCell.id)
         initialLayout()
         
 
@@ -104,7 +104,7 @@ class PhotoViewController: UIViewController {
 extension PhotoViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let imageURLString = networkManager.results[indexPath.row].urls.regular
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PhotosCollectionViewCell.id, for: indexPath) as? PhotosCollectionViewCell else {
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PhotoCollectionViewCell.id, for: indexPath) as? PhotoCollectionViewCell else {
             return UICollectionViewCell()
            
 

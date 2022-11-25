@@ -20,5 +20,4 @@ class DetailConfigurator: DetailConfiguratorInputProtocol {
         presenter.interactor = intreactor
     }
     
-    
 }

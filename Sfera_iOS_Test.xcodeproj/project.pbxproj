@@ -19,7 +19,7 @@
 		622A6F652929722B00783DDC /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 622A6F642929722B00783DDC /* SnapKit */; };
 		622A6F702929756C00783DDC /* ModelPhotos.swift in Sources */ = {isa = PBXBuildFile; fileRef = 622A6F6F2929756C00783DDC /* ModelPhotos.swift */; };
 		622A6F72292975A400783DDC /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 622A6F71292975A400783DDC /* NetworkManager.swift */; };
-		622A6F7429297C9000783DDC /* PhotosCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 622A6F7329297C9000783DDC /* PhotosCollectionViewCell.swift */; };
+		622A6F7429297C9000783DDC /* PhotoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 622A6F7329297C9000783DDC /* PhotoCollectionViewCell.swift */; };
 		62C407FA292FBE8200CD1413 /* DetailPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62C407F9292FBE8200CD1413 /* DetailPresenter.swift */; };
 		62C407FC292FBE9600CD1413 /* DetailInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62C407FB292FBE9600CD1413 /* DetailInteractor.swift */; };
 		62C407FE292FBEB200CD1413 /* DetailConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62C407FD292FBEB200CD1413 /* DetailConfigurator.swift */; };
@@ -27,6 +27,10 @@
 		62C40802292FC1CA00CD1413 /* Support.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62C40801292FC1CA00CD1413 /* Support.swift */; };
 		62C408042930C07300CD1413 /* ShowDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62C408032930C07300CD1413 /* ShowDetail.swift */; };
 		62C408062930C44500CD1413 /* ImageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62C408052930C44500CD1413 /* ImageManager.swift */; };
+		62C408082931389D00CD1413 /* PhotoPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62C408072931389D00CD1413 /* PhotoPresenter.swift */; };
+		62C4080A293138AE00CD1413 /* PhotoInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62C40809293138AE00CD1413 /* PhotoInteractor.swift */; };
+		62C4080C293138BC00CD1413 /* PhotoRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62C4080B293138BC00CD1413 /* PhotoRouter.swift */; };
+		62C4080E293138CA00CD1413 /* PhotoEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62C4080D293138CA00CD1413 /* PhotoEntity.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -43,7 +47,7 @@
 		622A6F61292967FD00783DDC /* MainTabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarViewController.swift; sourceTree = "<group>"; };
 		622A6F6F2929756C00783DDC /* ModelPhotos.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelPhotos.swift; sourceTree = "<group>"; };
 		622A6F71292975A400783DDC /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
-		622A6F7329297C9000783DDC /* PhotosCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosCollectionViewCell.swift; sourceTree = "<group>"; };
+		622A6F7329297C9000783DDC /* PhotoCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoCollectionViewCell.swift; sourceTree = "<group>"; };
 		62C407F9292FBE8200CD1413 /* DetailPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailPresenter.swift; sourceTree = "<group>"; };
 		62C407FB292FBE9600CD1413 /* DetailInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailInteractor.swift; sourceTree = "<group>"; };
 		62C407FD292FBEB200CD1413 /* DetailConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailConfigurator.swift; sourceTree = "<group>"; };
@@ -51,6 +55,10 @@
 		62C40801292FC1CA00CD1413 /* Support.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Support.swift; sourceTree = "<group>"; };
 		62C408032930C07300CD1413 /* ShowDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowDetail.swift; sourceTree = "<group>"; };
 		62C408052930C44500CD1413 /* ImageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageManager.swift; sourceTree = "<group>"; };
+		62C408072931389D00CD1413 /* PhotoPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoPresenter.swift; sourceTree = "<group>"; };
+		62C40809293138AE00CD1413 /* PhotoInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoInteractor.swift; sourceTree = "<group>"; };
+		62C4080B293138BC00CD1413 /* PhotoRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoRouter.swift; sourceTree = "<group>"; };
+		62C4080D293138CA00CD1413 /* PhotoEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoEntity.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -132,6 +140,10 @@
 			isa = PBXGroup;
 			children = (
 				622A6F6E2929735500783DDC /* PhotoViewController */,
+				62C408072931389D00CD1413 /* PhotoPresenter.swift */,
+				62C40809293138AE00CD1413 /* PhotoInteractor.swift */,
+				62C4080B293138BC00CD1413 /* PhotoRouter.swift */,
+				62C4080D293138CA00CD1413 /* PhotoEntity.swift */,
 			);
 			path = Photos;
 			sourceTree = "<group>";
@@ -167,7 +179,7 @@
 			isa = PBXGroup;
 			children = (
 				622A6F4A29291FF100783DDC /* PhotoViewController.swift */,
-				622A6F7329297C9000783DDC /* PhotosCollectionViewCell.swift */,
+				622A6F7329297C9000783DDC /* PhotoCollectionViewCell.swift */,
 			);
 			path = PhotoViewController;
 			sourceTree = "<group>";
@@ -251,9 +263,11 @@
 				62C407FE292FBEB200CD1413 /* DetailConfigurator.swift in Sources */,
 				62C408062930C44500CD1413 /* ImageManager.swift in Sources */,
 				622A6F72292975A400783DDC /* NetworkManager.swift in Sources */,
-				622A6F7429297C9000783DDC /* PhotosCollectionViewCell.swift in Sources */,
+				622A6F7429297C9000783DDC /* PhotoCollectionViewCell.swift in Sources */,
+				62C4080A293138AE00CD1413 /* PhotoInteractor.swift in Sources */,
 				622A6F4B29291FF100783DDC /* PhotoViewController.swift in Sources */,
 				62C407FC292FBE9600CD1413 /* DetailInteractor.swift in Sources */,
+				62C4080C293138BC00CD1413 /* PhotoRouter.swift in Sources */,
 				622A6F5129291FF100783DDC /* Sfera_iOS_Test.xcdatamodeld in Sources */,
 				62C407FA292FBE8200CD1413 /* DetailPresenter.swift in Sources */,
 				622A6F702929756C00783DDC /* ModelPhotos.swift in Sources */,
@@ -265,6 +279,8 @@
 				622A6F602929663400783DDC /* FavoriteViewController.swift in Sources */,
 				622A6F4929291FF100783DDC /* SceneDelegate.swift in Sources */,
 				62C408042930C07300CD1413 /* ShowDetail.swift in Sources */,
+				62C408082931389D00CD1413 /* PhotoPresenter.swift in Sources */,
+				62C4080E293138CA00CD1413 /* PhotoEntity.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

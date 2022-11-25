@@ -14,7 +14,6 @@ protocol DetailViewInputProtocol: AnyObject {
     func displayAuthor(with title: String)
     func displayLikes(with title: String)
     func displayImage(with imageData: Data)
-    
 }
 
 protocol DetailViewOutputProtocol: AnyObject {
@@ -23,25 +22,13 @@ protocol DetailViewOutputProtocol: AnyObject {
 }
 
 class DetailViewController: UIViewController {
-    
-   // var selectedImage: String?
-//    var textLocation = String()
-//    var textAuthor = String()
-//    var textLikes = Int()
-    
-    //var detail: Result!
+  
     var presenter: DetailViewOutputProtocol!
-    //var networkManager: NetworkManager!
-    //private let configurator: DetailConfiguratorInputProtocol = DetailConfigurator()
-    
-    
-    
-    
+
     lazy var imageView: UIImageView = {
         let imageView = UIImageView()
         imageView.clipsToBounds = true
         imageView.contentMode = .scaleAspectFill
-        imageView.isHidden = true
         return imageView
     }()
     
@@ -66,26 +53,14 @@ class DetailViewController: UIViewController {
         labelLikes.textAlignment = .right
         labelLikes.font = labelAuthor.font.withSize(15)
         labelLikes.textColor = .lightGray
-        //labelLikes.text = "Likes: \(textLikes)"
         return labelLikes
     }()
-    //    init (imageView: UIImageView) {
-    //        self.image = imageView
-    //        super.init(nibName: nil, bundle: nil)
-    //
-    //    }
-    
-    //    required init?(coder: NSCoder) {
-    //        fatalError("init(coder:) has not been implemented")
-    //    }
+  
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        //configurator.configure(with: self, and: detail)
         presenter.showDetails()
-       // imageView.isHidden = true
         
-        //configureImage(with: detail.urls.regular, imageView: imageView)
         self.view.backgroundColor = .white
         view.addSubviews(imageView, labelLocation, labelAuthor, labelLikes)
 
@@ -106,13 +81,6 @@ class DetailViewController: UIViewController {
 //            let images = load
 //            configureImage(with: images, imageView: imageView)
 //        }
-        imageView.isHidden = false
-
-        self.imageView.transform = CGAffineTransform(scaleX: 0, y: 0)
-        UIView.animate(withDuration: 3, delay: 0, usingSpringWithDamping: 0.4, initialSpringVelocity: 0, options: .curveEaseOut, animations: {
-                     self.imageView.transform = .identity
-                 }, completion: nil)
-        
      }
     
     //MARK: - Initial constraints Detail ViewController
@@ -146,8 +114,6 @@ class DetailViewController: UIViewController {
 
 // MARK: - DeailViewInputProtocol
 extension DetailViewController: DetailViewInputProtocol {
-  
-    
    
     func displayLocation(with title: String) {
         labelLocation.text = title
@@ -161,9 +127,12 @@ extension DetailViewController: DetailViewInputProtocol {
 
     func displayImage(with imageData: Data) {
         imageView.image = UIImage(data: imageData)
+        
+        self.imageView.transform = CGAffineTransform(scaleX: 0, y: 0)
+        UIView.animate(withDuration: 3, delay: 0, usingSpringWithDamping: 0.4, initialSpringVelocity: 0, options: .curveEaseOut, animations: {
+                     self.imageView.transform = .identity
+                 }, completion: nil)
     }
-    
-  
     
 }
 

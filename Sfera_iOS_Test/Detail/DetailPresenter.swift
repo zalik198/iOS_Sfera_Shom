@@ -12,9 +12,7 @@ struct DetailsData {
     let authorName: String
     let likes: Int
     let imageData: Data?
-    
 }
-
 
 class DetailPresenter: DetailViewOutputProtocol {
     unowned let view: DetailViewInputProtocol
@@ -27,8 +25,6 @@ class DetailPresenter: DetailViewOutputProtocol {
     func showDetails() {
         interactor.provideDetail()
     }
-    
-    
 }
 
 // MARK: - DetailInteractorOutputProtocol

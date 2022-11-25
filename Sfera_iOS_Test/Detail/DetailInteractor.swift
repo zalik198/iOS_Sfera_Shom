@@ -19,7 +19,6 @@ protocol DetailInteractorOutputProtocol: AnyObject {
 
 class DetailInteractor: DetailInteractorInputProtocol {
 
-    
     unowned let presenter: DetailInteractorOutputProtocol
     private let detail: Result
     
@@ -30,22 +29,13 @@ class DetailInteractor: DetailInteractorInputProtocol {
     
     func provideDetail() {
         let newImage = ImageManager.shared.fetchData(from: URL(string: detail.urls.regular))
-        //var images = newConfImage(with: detail.urls.regular)
         let detailData = DetailsData(
             locationName: detail.user.location ?? "Местоположение не указано",
             authorName: detail.user.name,
             likes: detail.likes,
             imageData: newImage.unsafelyUnwrapped
-            
-           
         )
-        //print(detail.user.location)
         presenter.receiveDetail(with: detailData)
     }
-    
-    
-}
 
-extension DetailInteractor  {
-    
 }
