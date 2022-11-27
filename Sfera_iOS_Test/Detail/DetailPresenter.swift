@@ -7,13 +7,6 @@
 
 import UIKit
 
-struct DetailsData {
-    let locationName: String
-    let authorName: String
-    let likes: Int
-    let imageData: Data?
-}
-
 class DetailPresenter: DetailViewOutputProtocol {
     unowned let view: DetailViewInputProtocol
     var interactor: DetailInteractorInputProtocol!

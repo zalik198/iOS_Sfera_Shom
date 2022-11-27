@@ -18,7 +18,7 @@ protocol DetailInteractorOutputProtocol: AnyObject {
 }
 
 class DetailInteractor: DetailInteractorInputProtocol {
-
+    
     unowned let presenter: DetailInteractorOutputProtocol
     private let detail: Result
     
@@ -37,5 +37,7 @@ class DetailInteractor: DetailInteractorInputProtocol {
         )
         presenter.receiveDetail(with: detailData)
     }
-
+    
 }
+
+

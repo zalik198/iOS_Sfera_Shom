@@ -22,9 +22,9 @@ protocol DetailViewOutputProtocol: AnyObject {
 }
 
 class DetailViewController: UIViewController {
-  
+    
     var presenter: DetailViewOutputProtocol!
-
+    
     lazy var imageView: UIImageView = {
         let imageView = UIImageView()
         imageView.clipsToBounds = true
@@ -55,18 +55,17 @@ class DetailViewController: UIViewController {
         labelLikes.textColor = .lightGray
         return labelLikes
     }()
-  
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         presenter.showDetails()
-        
         self.view.backgroundColor = .white
         view.addSubviews(imageView, labelLocation, labelAuthor, labelLikes)
-
+        
         initialLayout()
         
-    
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -74,14 +73,14 @@ class DetailViewController: UIViewController {
         self.tabBarController?.tabBar.isHidden = true
     }
     
-
+    
     override func viewDidAppear(_ animated: Bool) {
-         super.viewDidAppear(animated)
-//        if let load = selectedImage {
-//            let images = load
-//            configureImage(with: images, imageView: imageView)
-//        }
-     }
+        super.viewDidAppear(animated)
+        //        if let load = selectedImage {
+        //            let images = load
+        //            configureImage(with: images, imageView: imageView)
+        //        }
+    }
     
     //MARK: - Initial constraints Detail ViewController
     func initialLayout() {
@@ -114,7 +113,7 @@ class DetailViewController: UIViewController {
 
 // MARK: - DeailViewInputProtocol
 extension DetailViewController: DetailViewInputProtocol {
-   
+    
     func displayLocation(with title: String) {
         labelLocation.text = title
     }
@@ -124,14 +123,14 @@ extension DetailViewController: DetailViewInputProtocol {
     func displayLikes(with title: String) {
         labelLikes.text = "\(title)"
     }
-
+    
     func displayImage(with imageData: Data) {
         imageView.image = UIImage(data: imageData)
         
         self.imageView.transform = CGAffineTransform(scaleX: 0, y: 0)
-        UIView.animate(withDuration: 3, delay: 0, usingSpringWithDamping: 0.4, initialSpringVelocity: 0, options: .curveEaseOut, animations: {
-                     self.imageView.transform = .identity
-                 }, completion: nil)
+        UIView.animate(withDuration: 4, delay: 0, usingSpringWithDamping: 0.4, initialSpringVelocity: 0, options: .curveEaseOut, animations: {
+            self.imageView.transform = .identity
+        }, completion: nil)
     }
     
 }

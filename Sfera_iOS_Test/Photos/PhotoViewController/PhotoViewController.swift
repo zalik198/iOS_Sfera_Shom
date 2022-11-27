@@ -7,10 +7,23 @@
 import UIKit
 import SnapKit
 
+protocol PhotoViewInputProtocol: AnyObject {
+    func display(_ detail: [Result])
+}
+
+protocol PhotoViewOutputProtocol: AnyObject {
+    init(view: PhotoViewInputProtocol)
+    func viewDidLoad()
+}
+
 class PhotoViewController: UIViewController {
     
     let networkManager = NetworkManager()
-    //var detail: Result!
+    
+    private var photo: [Result] = []
+    
+    var presenter: PhotoViewOutputProtocol!
+    private let configurator: PhotoConfiguratorInputProtocol = PhotoConfigurator()
     //var imageArray: [UIImage]?
     //var favorite = Favorite()
     
@@ -32,40 +45,46 @@ class PhotoViewController: UIViewController {
         return collectionView
     }()
     
-//    lazy var buttonTitle: UIButton = {
-//       let buttonTitle = UIButton(frame: CGRect(x: 0, y: 0, width: 100, height: 50))
-//        //buttonTitle.titleLabel?.largeContentTitle = title
-//        buttonTitle.title(for: .normal)
-//        buttonTitle.backgroundColor = .blue
-//        buttonTitle.titleLabel?.text = "Hello World"
-//        return buttonTitle
-//    }()
-  
+    //    lazy var buttonTitle: UIButton = {
+    //       let buttonTitle = UIButton(frame: CGRect(x: 0, y: 0, width: 100, height: 50))
+    //        //buttonTitle.titleLabel?.largeContentTitle = title
+    //        buttonTitle.title(for: .normal)
+    //        buttonTitle.backgroundColor = .blue
+    //        buttonTitle.titleLabel?.text = "Hello World"
+    //        return buttonTitle
+    //    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        configurator.configure(with: self)
+        presenter.viewDidLoad()
         navigationItem.hidesSearchBarWhenScrolling = false
         self.view.backgroundColor = .white
         self.title = "Photo"
         //self.buttonTitle.buttonType = .custom
         //self.navigationItem.titleView = buttonTitle
         //self.navigationItem.title = "Hellow sad"
-
+        
         networkManager.fetchPhotos()
         view.addSubviews(collectionView)
         collectionView.register(PhotoCollectionViewCell.self, forCellWithReuseIdentifier: PhotoCollectionViewCell.id)
         initialLayout()
         
-
+        
         DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
             self.collectionView.reloadData()
         }
         
+        longPressPhoto()
+        
+    }
+    
+    // MARK: - LongPressPhoto
+    func longPressPhoto() {
         let longPressRecognizer = UILongPressGestureRecognizer(target: self, action: #selector(longPress(longPressGestureRecognizer:)))
         self.view.addGestureRecognizer(longPressRecognizer)
     }
-    
-    //MARK: Initial constraints
+    // MARK: Initial constraints
     func initialLayout() {
         collectionView.snp.makeConstraints { make in
             make.top.bottom.width.trailing.leading.equalTo(view.safeAreaLayoutGuide)
@@ -73,11 +92,12 @@ class PhotoViewController: UIViewController {
     }
     
     @objc private func duobleTapInPost() {
-                print("longTap")
-
+        print("longTap")
+        
     }
+    
     @objc func longPress(longPressGestureRecognizer: UILongPressGestureRecognizer) {
-
+        
         if longPressGestureRecognizer.state == UIGestureRecognizer.State.began {
             //longPressGestureRecognizer.minimumPressDuration = 2
             let touchPoint = longPressGestureRecognizer.location(in: self.view)
@@ -86,18 +106,18 @@ class PhotoViewController: UIViewController {
                 //add your code here
                 //you can use 'indexPath' to find out which row is selected
             }
-
+            
             print("longTap")
         }
     }
     
-        override func viewWillAppear(_ animated: Bool) {
-            super.viewWillAppear(animated)
-            self.tabBarController?.tabBar.isHidden = false
-        }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.tabBarController?.tabBar.isHidden = false
+    }
     
-
-
+    
+    
 }
 
 //MARK: Extension CollectionViewDataSource
@@ -106,13 +126,13 @@ extension PhotoViewController: UICollectionViewDataSource {
         let imageURLString = networkManager.results[indexPath.row].urls.regular
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PhotoCollectionViewCell.id, for: indexPath) as? PhotoCollectionViewCell else {
             return UICollectionViewCell()
-           
-
+            
+            
         }
         
         cell.configure(with: imageURLString)
         
-
+        
         
         return cell
     }
@@ -127,29 +147,19 @@ extension PhotoViewController: UICollectionViewDataSource {
 extension PhotoViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
-        //let newVC = InfoDetailViewController()
-        //let cell = collectionView.cellForItem(at: indexPath)!
-        
         let vc = DetailViewController()
-
         let config: DetailConfiguratorInputProtocol = DetailConfigurator()
         config.configure(with: vc, and: networkManager.results[indexPath.row])
-        //vc.selectedImage = networkManager.results[indexPath.row].urls.regular
-        //vc.textLocation = networkManager.results[indexPath.row].user.location ?? "Местоположение не указано"
-        //vc.textAuthor = networkManager.results[indexPath.row].user.name
-        //vc.textLikes = networkManager.results[indexPath.row].likes
+        
         navigationController?.pushViewController(vc, animated: true)
-
         
-        //print(networkManager.results[indexPath.row].user.location ?? "Пользователь не указал место")
-        //print(networkManager.results[indexPath.row].user.name)
-        //print(networkManager.results[indexPath.row].likes)
-        //print(networkManager.results[indexPath.row].id)
         
-//        let tapRecog = UITapGestureRecognizer(target: self, action: #selector(duobleTapInPost))
-//        tapRecog.numberOfTapsRequired = 2
-//        collectionView.addGestureRecognizer(tapRecog)
-            
+        
+        
+        //        let tapRecog = UITapGestureRecognizer(target: self, action: #selector(duobleTapInPost))
+        //        tapRecog.numberOfTapsRequired = 2
+        //        collectionView.addGestureRecognizer(tapRecog)
+        
     }
     
     
@@ -164,10 +174,19 @@ extension PhotoViewController: UICollectionViewDelegateFlowLayout {
     }
 }
 
-extension PhotoViewController: UIPopoverPresentationControllerDelegate {
-    
-    func adaptivePresentationStyle(for controller: UIPresentationController) -> UIModalPresentationStyle {
-        return .none
+//extension PhotoViewController: UIPopoverPresentationControllerDelegate {
+//    func adaptivePresentationStyle(for controller: UIPresentationController) -> UIModalPresentationStyle {
+//        return .fullScreen
+//    }
+//}
+
+//MARK: - Extension PhotoViewInputProtocol
+extension PhotoViewController: PhotoViewInputProtocol {
+    func display(_ photo: [Result]) {
+        self.photo = photo
+        //collectionView.reloadData()
     }
+    
+    
 }
 

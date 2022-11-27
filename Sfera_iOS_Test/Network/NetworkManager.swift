@@ -18,8 +18,7 @@ import UIKit
 class NetworkManager {
     
     static let shared = NetworkManager()
-
-
+    
     public var results: [Result] = []
     
     func fetchPhotos() {
@@ -40,6 +39,30 @@ class NetworkManager {
         
         task.resume()
     }
+    
+    //    func fetchPhotosSec(completion: @escaping(_ photo: ApiResponse) -> Void) {
+    //
+    //        guard let url = URL(string: urlString) else { return }
+    //
+    //        URLSession.shared.dataTask(with: url) { data, _, error in
+    //            guard let data = data else {
+    //                print(error?.localizedDescription ?? "No Discription")
+    //                return
+    //            }
+    //            do {
+    //                let decoder = JSONDecoder()
+    //                decoder.keyDecodingStrategy = .convertFromSnakeCase
+    //                let photo = try decoder.decode(ApiResponse.self, from: data)
+    //                DispatchQueue.main.async {
+    //                    self.result = photo.results
+    //
+    //                    completion(photo)
+    //                }
+    //            } catch let error {
+    //                print("Error serialization json", error)
+    //            }
+    //        }.resume()
+    //    }
     
     
     

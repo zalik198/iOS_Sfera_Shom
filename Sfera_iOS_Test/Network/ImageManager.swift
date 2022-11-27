@@ -15,12 +15,12 @@ class ImageManager {
     
     
     func fetchData(from url: URL?) -> Data? {
-            guard let url = url else { return nil}
-            guard let imageData = try? Data(contentsOf: url) else { return nil}
-
-            return imageData
+        guard let url = url else { return nil}
+        guard let imageData = try? Data(contentsOf: url) else { return nil }
         
-          
-
+        return imageData
+        
+        
+        
     }
 }

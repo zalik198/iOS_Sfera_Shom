@@ -37,9 +37,9 @@ class PhotoCollectionViewCell: UICollectionViewCell {
         imageView.image = nil
         
     }
-
     
-   func configure(with urlString: String) {
-       configureImage(with: urlString, imageView: imageView)
-   }
+    
+    func configure(with urlString: String) {
+        configureImage(with: urlString, imageView: imageView)
+    }
 }
