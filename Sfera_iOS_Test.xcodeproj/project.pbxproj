@@ -10,11 +10,9 @@
 		622A6F4729291FF100783DDC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 622A6F4629291FF100783DDC /* AppDelegate.swift */; };
 		622A6F4929291FF100783DDC /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 622A6F4829291FF100783DDC /* SceneDelegate.swift */; };
 		622A6F4B29291FF100783DDC /* PhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 622A6F4A29291FF100783DDC /* PhotoViewController.swift */; };
-		622A6F5129291FF100783DDC /* Sfera_iOS_Test.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 622A6F4F29291FF100783DDC /* Sfera_iOS_Test.xcdatamodeld */; };
 		622A6F5329291FF300783DDC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 622A6F5229291FF300783DDC /* Assets.xcassets */; };
 		622A6F5629291FF300783DDC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 622A6F5429291FF300783DDC /* LaunchScreen.storyboard */; };
 		622A6F5E2929660B00783DDC /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 622A6F5D2929660B00783DDC /* DetailViewController.swift */; };
-		622A6F602929663400783DDC /* FavoriteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 622A6F5F2929663300783DDC /* FavoriteViewController.swift */; };
 		622A6F62292967FD00783DDC /* MainTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 622A6F61292967FD00783DDC /* MainTabBarViewController.swift */; };
 		622A6F652929722B00783DDC /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 622A6F642929722B00783DDC /* SnapKit */; };
 		622A6F702929756C00783DDC /* ModelPhotos.swift in Sources */ = {isa = PBXBuildFile; fileRef = 622A6F6F2929756C00783DDC /* ModelPhotos.swift */; };
@@ -31,6 +29,8 @@
 		62C4080C293138BC00CD1413 /* PhotoRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62C4080B293138BC00CD1413 /* PhotoRouter.swift */; };
 		62C40810293142DD00CD1413 /* DetailEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62C4080F293142DD00CD1413 /* DetailEntity.swift */; };
 		62C408122932CD8300CD1413 /* PhotoConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62C408112932CD8300CD1413 /* PhotoConfigurator.swift */; };
+		62C4082A2934C65700CD1413 /* ImagesData.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 62C408282934C65700CD1413 /* ImagesData.xcdatamodeld */; };
+		62C4082D2934F01D00CD1413 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62C4082C2934F01D00CD1413 /* MapViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,12 +38,10 @@
 		622A6F4629291FF100783DDC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		622A6F4829291FF100783DDC /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		622A6F4A29291FF100783DDC /* PhotoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoViewController.swift; sourceTree = "<group>"; };
-		622A6F5029291FF100783DDC /* Sfera_iOS_Test.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Sfera_iOS_Test.xcdatamodel; sourceTree = "<group>"; };
 		622A6F5229291FF300783DDC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		622A6F5529291FF300783DDC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		622A6F5729291FF300783DDC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		622A6F5D2929660B00783DDC /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
-		622A6F5F2929663300783DDC /* FavoriteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteViewController.swift; sourceTree = "<group>"; };
 		622A6F61292967FD00783DDC /* MainTabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarViewController.swift; sourceTree = "<group>"; };
 		622A6F6F2929756C00783DDC /* ModelPhotos.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelPhotos.swift; sourceTree = "<group>"; };
 		622A6F71292975A400783DDC /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
@@ -59,6 +57,8 @@
 		62C4080B293138BC00CD1413 /* PhotoRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoRouter.swift; sourceTree = "<group>"; };
 		62C4080F293142DD00CD1413 /* DetailEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailEntity.swift; sourceTree = "<group>"; };
 		62C408112932CD8300CD1413 /* PhotoConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoConfigurator.swift; sourceTree = "<group>"; };
+		62C408292934C65700CD1413 /* ImagesData.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ImagesData.xcdatamodel; sourceTree = "<group>"; };
+		62C4082C2934F01D00CD1413 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,11 +99,11 @@
 				622A6F682929729D00783DDC /* SupportFiles */,
 				622A6F69292972AB00783DDC /* Photos */,
 				622A6F6A292972BE00783DDC /* Detail */,
-				622A6F6B292972C500783DDC /* Favorite */,
+				62C4082B2934EFF600CD1413 /* Map */,
 				622A6F5229291FF300783DDC /* Assets.xcassets */,
 				622A6F5429291FF300783DDC /* LaunchScreen.storyboard */,
+				62C408282934C65700CD1413 /* ImagesData.xcdatamodeld */,
 				622A6F5729291FF300783DDC /* Info.plist */,
-				622A6F4F29291FF100783DDC /* Sfera_iOS_Test.xcdatamodeld */,
 			);
 			path = Sfera_iOS_Test;
 			sourceTree = "<group>";
@@ -159,22 +159,6 @@
 			path = Detail;
 			sourceTree = "<group>";
 		};
-		622A6F6B292972C500783DDC /* Favorite */ = {
-			isa = PBXGroup;
-			children = (
-				622A6F6C2929731000783DDC /* FavoriteViewController */,
-			);
-			path = Favorite;
-			sourceTree = "<group>";
-		};
-		622A6F6C2929731000783DDC /* FavoriteViewController */ = {
-			isa = PBXGroup;
-			children = (
-				622A6F5F2929663300783DDC /* FavoriteViewController.swift */,
-			);
-			path = FavoriteViewController;
-			sourceTree = "<group>";
-		};
 		622A6F6E2929735500783DDC /* PhotoViewController */ = {
 			isa = PBXGroup;
 			children = (
@@ -182,6 +166,14 @@
 				622A6F7329297C9000783DDC /* PhotoCollectionViewCell.swift */,
 			);
 			path = PhotoViewController;
+			sourceTree = "<group>";
+		};
+		62C4082B2934EFF600CD1413 /* Map */ = {
+			isa = PBXGroup;
+			children = (
+				62C4082C2934F01D00CD1413 /* MapViewController.swift */,
+			);
+			path = Map;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -270,7 +262,6 @@
 				622A6F4B29291FF100783DDC /* PhotoViewController.swift in Sources */,
 				62C407FC292FBE9600CD1413 /* DetailInteractor.swift in Sources */,
 				62C4080C293138BC00CD1413 /* PhotoRouter.swift in Sources */,
-				622A6F5129291FF100783DDC /* Sfera_iOS_Test.xcdatamodeld in Sources */,
 				62C407FA292FBE8200CD1413 /* DetailPresenter.swift in Sources */,
 				622A6F702929756C00783DDC /* ModelPhotos.swift in Sources */,
 				622A6F5E2929660B00783DDC /* DetailViewController.swift in Sources */,
@@ -278,9 +269,10 @@
 				62C40800292FC03000CD1413 /* ConfigureImage.swift in Sources */,
 				62C40802292FC1CA00CD1413 /* Support.swift in Sources */,
 				622A6F4729291FF100783DDC /* AppDelegate.swift in Sources */,
-				622A6F602929663400783DDC /* FavoriteViewController.swift in Sources */,
+				62C4082D2934F01D00CD1413 /* MapViewController.swift in Sources */,
 				622A6F4929291FF100783DDC /* SceneDelegate.swift in Sources */,
 				62C408082931389D00CD1413 /* PhotoPresenter.swift in Sources */,
+				62C4082A2934C65700CD1413 /* ImagesData.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -422,6 +414,10 @@
 				DEVELOPMENT_TEAM = W5WVZM4M3W;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Sfera_iOS_Test/Info.plist;
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "Location is used";
+				INFOPLIST_KEY_NSLocationAlwaysUsageDescription = "Location is used";
+				INFOPLIST_KEY_NSLocationUsageDescription = "Location is used";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Location is used";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -449,6 +445,10 @@
 				DEVELOPMENT_TEAM = W5WVZM4M3W;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Sfera_iOS_Test/Info.plist;
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "Location is used";
+				INFOPLIST_KEY_NSLocationAlwaysUsageDescription = "Location is used";
+				INFOPLIST_KEY_NSLocationUsageDescription = "Location is used";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Location is used";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -509,13 +509,13 @@
 /* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
-		622A6F4F29291FF100783DDC /* Sfera_iOS_Test.xcdatamodeld */ = {
+		62C408282934C65700CD1413 /* ImagesData.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
-				622A6F5029291FF100783DDC /* Sfera_iOS_Test.xcdatamodel */,
+				62C408292934C65700CD1413 /* ImagesData.xcdatamodel */,
 			);
-			currentVersion = 622A6F5029291FF100783DDC /* Sfera_iOS_Test.xcdatamodel */;
-			path = Sfera_iOS_Test.xcdatamodeld;
+			currentVersion = 62C408292934C65700CD1413 /* ImagesData.xcdatamodel */;
+			path = ImagesData.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};

@@ -35,7 +35,6 @@ class DetailViewController: UIViewController {
     lazy var labelLocation: UILabel = {
         let labelLocation = UILabel()
         labelLocation.textAlignment = .center
-        //labelLocation.text = "Location: \(textLocation)"
         return labelLocation
     }()
     
@@ -44,7 +43,6 @@ class DetailViewController: UIViewController {
         labelAuthor.textAlignment = .left
         labelAuthor.font = labelAuthor.font.withSize(15)
         labelAuthor.textColor = .lightGray
-        //labelAuthor.text = "Author: \(textAuthor)"
         return labelAuthor
     }()
     
@@ -61,6 +59,7 @@ class DetailViewController: UIViewController {
         super.viewDidLoad()
         presenter.showDetails()
         self.view.backgroundColor = .white
+        navigationItem.title = "Информация"
         view.addSubviews(imageView, labelLocation, labelAuthor, labelLikes)
         
         initialLayout()
