@@ -18,14 +18,12 @@ class MapViewController: UIViewController, UIGestureRecognizerDelegate {
     private lazy var button: UIButton = {
         let button = UIButton()
         button.setImage(UIImage(systemName: "xmark.circle", withConfiguration: largeConfig), for: .normal)
-        button.translatesAutoresizingMaskIntoConstraints = false
         button.addTarget(self, action: #selector(handleTapButton), for: .touchUpInside)
         return button
     }()
     
     private lazy var mapView: MKMapView = {
         let mapView: MKMapView!
-        self.mapView.translatesAutoresizingMaskIntoConstraints = false
         self.mapView.mapType = .standard
         self.mapView.isZoomEnabled = true
         self.mapView.isScrollEnabled = true
@@ -39,8 +37,7 @@ class MapViewController: UIViewController, UIGestureRecognizerDelegate {
         
         self.mapView = MKMapView()
         self.mapView.delegate = self
-        self.view.addSubview(self.mapView)
-        self.view.addSubview(self.button)
+        self.view.addSubviews(mapView, button)
         self.mapView.showsUserLocation = true
         
         self.locationManager.requestAlwaysAuthorization()
@@ -74,16 +71,20 @@ class MapViewController: UIViewController, UIGestureRecognizerDelegate {
     }
     
     private func initialLayout() {
-        NSLayoutConstraint.activate([
-            self.button.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -16),
-            self.button.centerYAnchor.constraint(equalTo: self.view.centerYAnchor)
-        ])
+        button.snp.makeConstraints { make in
+            make.trailing.equalToSuperview().offset(-16)
+            make.centerY.equalToSuperview()
+        }
+
     }
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         guard self.mapView == self.mapView else { return }
-        mapView.frame = view.bounds
+        mapView.snp.makeConstraints { make in
+            make.top.bottom.leading.trailing.equalToSuperview()
+        }
+        //mapView.frame = view.bounds
     }
     
     //Добавление точек
@@ -204,7 +205,7 @@ extension MapViewController: MKMapViewDelegate {
     func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
         let renderer = MKPolylineRenderer(overlay: overlay)
         
-        //Показывается увеличенный маршрут после построения
+        //Показывается zoom маршрута после построения
         let mapRect = MKPolygon(points: renderer.polyline.points(), count: renderer.polyline.pointCount)
         mapView.setVisibleMapRect(mapRect.boundingMapRect, edgePadding: UIEdgeInsets(top: 50.0,left: 50.0,bottom: 50.0,right: 50.0), animated: true)
         renderer.lineWidth = 3

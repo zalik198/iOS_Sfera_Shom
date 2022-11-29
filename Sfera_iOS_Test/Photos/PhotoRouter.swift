@@ -5,11 +5,12 @@
 //  Created by Shom on 25.11.2022.
 //
 
-import Foundation
+import UIKit
 
 protocol PhotoRouterInputProtocol {
+
     init(viewController: PhotoViewController)
-    func openDetailViewController(with photo: ApiResponse)
+    func openDetailViewController(with vc: UIViewController)
 }
 
 class PhotoRouter: PhotoRouterInputProtocol {
@@ -19,8 +20,9 @@ class PhotoRouter: PhotoRouterInputProtocol {
         self.viewController = viewController
     }
     
-    func openDetailViewController(with photo: ApiResponse) {
-        
+    func openDetailViewController(with vc: UIViewController) {
+        vc.modalPresentationStyle = .automatic
+        viewController.present(vc, animated: true)
     }
     
     

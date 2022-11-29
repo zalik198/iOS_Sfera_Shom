@@ -29,6 +29,8 @@ class DetailViewController: UIViewController {
         let imageView = UIImageView()
         imageView.clipsToBounds = true
         imageView.contentMode = .scaleAspectFill
+        imageView.layer.cornerRadius = 10
+        imageView.layer.masksToBounds = true
         return imageView
     }()
     
@@ -58,10 +60,7 @@ class DetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         presenter.showDetails()
-        self.view.backgroundColor = .white
-        navigationItem.title = "Информация"
-        view.addSubviews(imageView, labelLocation, labelAuthor, labelLikes)
-        
+        setupUI()
         initialLayout()
         
         
@@ -72,13 +71,20 @@ class DetailViewController: UIViewController {
         self.tabBarController?.tabBar.isHidden = true
     }
     
+    private func setupUI() {
+        self.view.backgroundColor = .white
+        self.view.addSubviews(imageView, labelLocation, labelAuthor, labelLikes)
+    }
+    
+  
+    
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        //        if let load = selectedImage {
-        //            let images = load
-        //            configureImage(with: images, imageView: imageView)
-        //        }
+        self.imageView.transform = CGAffineTransform(scaleX: 0, y: 0)
+        UIView.animate(withDuration: 4, delay: 0, usingSpringWithDamping: 0.4, initialSpringVelocity: 0, options: .curveEaseOut, animations: {
+            self.imageView.transform = .identity
+        }, completion: nil)
     }
     
     //MARK: - Initial constraints Detail ViewController
@@ -124,12 +130,9 @@ extension DetailViewController: DetailViewInputProtocol {
     }
     
     func displayImage(with imageData: Data) {
-        imageView.image = UIImage(data: imageData)
-        
-        self.imageView.transform = CGAffineTransform(scaleX: 0, y: 0)
-        UIView.animate(withDuration: 4, delay: 0, usingSpringWithDamping: 0.4, initialSpringVelocity: 0, options: .curveEaseOut, animations: {
-            self.imageView.transform = .identity
-        }, completion: nil)
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+            self.imageView.image = UIImage(data: imageData)
+        }
     }
     
 }

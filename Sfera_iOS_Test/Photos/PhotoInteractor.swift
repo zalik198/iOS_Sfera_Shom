@@ -20,11 +20,14 @@ class PhotoInteractor: PhotoInteractorInputProtocol {
     unowned let presenter: PhotoInteractorOutputProtocol
     
     required init(presenter: PhotoInteractorOutputProtocol) {
+        
         self.presenter = presenter
     }
     
     func fetchPhoto() {
         NetworkManager.shared.fetchPhotos()
+        
     }
+    
     
 }

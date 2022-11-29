@@ -8,6 +8,7 @@
 import UIKit
 
 class PhotoPresenter: PhotoViewOutputProtocol {
+
     unowned let view: PhotoViewInputProtocol
     var interactor: PhotoInteractorInputProtocol!
     var router: PhotoRouterInputProtocol!
@@ -21,6 +22,8 @@ class PhotoPresenter: PhotoViewOutputProtocol {
     }
     
     
+    
+    
 }
 
 
@@ -30,6 +33,8 @@ extension PhotoPresenter: PhotoInteractorOutputProtocol {
     func photoDidReceive(_ photo: ApiResponse) {
         view.display(photo.results)
     }
+    
+    
     
     
 }

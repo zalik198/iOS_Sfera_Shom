@@ -12,6 +12,8 @@ protocol PhotoViewInputProtocol: AnyObject {
 }
 
 protocol PhotoViewOutputProtocol: AnyObject {
+    var router: PhotoRouterInputProtocol! { get }
+
     init(view: PhotoViewInputProtocol)
     func viewDidLoad()
 }
@@ -19,13 +21,12 @@ protocol PhotoViewOutputProtocol: AnyObject {
 class PhotoViewController: UIViewController {
     
     let networkManager = NetworkManager()
-    
+
     private var photo: [Result] = []
     
     var presenter: PhotoViewOutputProtocol!
     private let configurator: PhotoConfiguratorInputProtocol = PhotoConfigurator()
-    //var imageArray: [UIImage]?
-    //var favorite = Favorite()
+
     
     lazy var layout: UICollectionViewFlowLayout = {
         let layout = UICollectionViewFlowLayout()
@@ -41,7 +42,6 @@ class PhotoViewController: UIViewController {
         let collectionView = UICollectionView(frame: .zero , collectionViewLayout: layout)
         collectionView.dataSource = self
         collectionView.delegate = self
-        //collectionView.backgroundColor = .systemGray5
         return collectionView
     }()
     
@@ -58,32 +58,10 @@ class PhotoViewController: UIViewController {
         super.viewDidLoad()
         configurator.configure(with: self)
         presenter.viewDidLoad()
-        navigationItem.hidesSearchBarWhenScrolling = false
-        navigationItem.title = "Фотографии"
-        self.view.backgroundColor = .white
-        //self.buttonTitle.buttonType = .custom
-        //self.navigationItem.titleView = buttonTitle
-        //self.navigationItem.title = "Hellow sad"
-        
-        networkManager.fetchPhotos()
-        view.addSubviews(collectionView)
-        collectionView.register(PhotoCollectionViewCell.self, forCellWithReuseIdentifier: PhotoCollectionViewCell.id)
+        setupUI()
         initialLayout()
-        
-        
-        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-            self.collectionView.reloadData()
-        }
-        
-        //longPressPhoto()
-        
     }
     
-    // MARK: - LongPressPhoto
-//    func longPressPhoto() {
-//        let longPressRecognizer = UILongPressGestureRecognizer(target: self, action: #selector(longPress(longPressGestureRecognizer:)))
-//        self.view.addGestureRecognizer(longPressRecognizer)
-//    }
     // MARK: Initial constraints
     func initialLayout() {
         collectionView.snp.makeConstraints { make in
@@ -91,41 +69,22 @@ class PhotoViewController: UIViewController {
         }
     }
     
-//    @objc private func duobleTapInPost() {
-//        print("longTap")
-//        
-//    }
-    
-   // @objc func longPress(longPressGestureRecognizer: UILongPressGestureRecognizer) {
-        
-//        if longPressGestureRecognizer.state == UIGestureRecognizer.State.began {
-//            longPressGestureRecognizer.minimumPressDuration = 2
-//            let touchPoint = longPressGestureRecognizer.location(in: self.view)
-//            if let indexPath = collectionView.indexPathForItem(at: touchPoint) {
-//
-//                //CoreDataManager.shared.openImage(from: UIImageView(image: Str))
-//                networkManager.fetchPhotos()
-//                        //viewModel?.postArray[self.cellIndex] else { return }
-//
-//                //CoreDataManager.shared.saveToCoreData(imageCell: networkManager.results[indexPath.row].urls.regular)
-//                //print(CoreDataManager.shared.favoritePost.count)
-//
-//
-//                //print("\(networkManager.results[indexPath.row].user.name)")
-//                //add your code here
-//                //you can use 'indexPath' to find out which row is selected
-//            }
-//
-//            print("longTap")
-//        }
-//    }
+    func setupUI() {
+        navigationItem.hidesSearchBarWhenScrolling = false
+        navigationItem.title = "Фотографии"
+        self.view.backgroundColor = .white
+        networkManager.fetchPhotos()
+        view.addSubviews(collectionView)
+        collectionView.register(PhotoCollectionViewCell.self, forCellWithReuseIdentifier: PhotoCollectionViewCell.id)
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+            self.collectionView.reloadData()
+        }
+    }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.tabBarController?.tabBar.isHidden = false
     }
-    
-    
     
 }
 
@@ -135,13 +94,11 @@ extension PhotoViewController: UICollectionViewDataSource {
         let imageURLString = networkManager.results[indexPath.row].urls.regular
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PhotoCollectionViewCell.id, for: indexPath) as? PhotoCollectionViewCell else {
             return UICollectionViewCell()
-            
-            
         }
         
         cell.configure(with: imageURLString)
-        
-        
+        cell.layer.cornerRadius = 10
+        cell.layer.masksToBounds = true
         
         return cell
     }
@@ -159,19 +116,9 @@ extension PhotoViewController: UICollectionViewDelegate {
         let vc = DetailViewController()
         let config: DetailConfiguratorInputProtocol = DetailConfigurator()
         config.configure(with: vc, and: networkManager.results[indexPath.row])
-        
-        navigationController?.pushViewController(vc, animated: true)
-        
-        
-        
-        
-        //        let tapRecog = UITapGestureRecognizer(target: self, action: #selector(duobleTapInPost))
-        //        tapRecog.numberOfTapsRequired = 2
-        //        collectionView.addGestureRecognizer(tapRecog)
+        presenter.router.openDetailViewController(with: vc)        
         
     }
-    
-    
     
 }
 
@@ -183,11 +130,6 @@ extension PhotoViewController: UICollectionViewDelegateFlowLayout {
     }
 }
 
-//extension PhotoViewController: UIPopoverPresentationControllerDelegate {
-//    func adaptivePresentationStyle(for controller: UIPresentationController) -> UIModalPresentationStyle {
-//        return .fullScreen
-//    }
-//}
 
 //MARK: - Extension PhotoViewInputProtocol
 extension PhotoViewController: PhotoViewInputProtocol {
@@ -198,4 +140,5 @@ extension PhotoViewController: PhotoViewInputProtocol {
     
     
 }
+
 

@@ -17,26 +17,15 @@ struct Result: Codable {
     let id: String
     let urls: URLS
     let user: User
-    let links: ResultLinks
     let likes: Int
-    //let createdAt: Date
-    //let updatedAt: Date
-
     
     enum CodingKeys: String, CodingKey {
         case id
         case urls
         case user
-        case links
         case likes
-        //case createdAt = "created_at"
-        //case updatedAt = "updated_at"
-
     }
-   
-
 }
-
 
 struct URLS: Codable {
     let regular: String
@@ -47,6 +36,4 @@ struct User: Codable {
     let name: String
 }
 
-struct ResultLinks: Codable {
-    let download: String
-}
+
